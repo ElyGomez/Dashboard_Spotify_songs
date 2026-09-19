@@ -1,0 +1,74 @@
+table Calendar
+	lineageTag: 5a8d1438-215d-4daf-a37e-d83483cdfbce
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: General Date
+		lineageTag: b7eaa4bf-00a9-4770-bf27-58fd9677d431
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		formatString: 0
+		lineageTag: fb7fd209-aba9-4b54-b850-b8b7e9b15d28
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number'
+		formatString: 0
+		lineageTag: 1d258623-cd59-4072-ba50-57368d6a59b0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month Number]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name'
+		lineageTag: a6c51b04-6292-4202-90f0-6aedcf737139
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month Name]
+		sortByColumn: 'Month Number'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		lineageTag: 5df2ccdb-3be3-4b32-bda4-538f396e9024
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Quarter]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weekday
+		lineageTag: 040ce989-914d-497b-aacf-032aba255d42
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Weekday]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Weekday Number'
+		formatString: 0
+		lineageTag: 092f8d1b-47f9-4b58-aa38-ad3f7b59249f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Weekday Number]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendar = calculated
+		mode: import
+		source = ```
+				ADDCOLUMNS(CALENDARAUTO(), "Year", YEAR([Date]), "Month Number", MONTH([Date]), "Month Name", FORMAT([Date], "MMMM"), "Quarter", "Q" & FORMAT([Date], "Q"), "Weekday", FORMAT([Date], "dddd"), "Weekday Number", WEEKDAY([Date], 2)) 
+				```
+
+	annotation PBI_Id = f2a1095bc67c4b16bde3da9802b63228
+

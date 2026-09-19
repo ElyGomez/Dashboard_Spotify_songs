@@ -1,0 +1,61 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 409.63717651367188,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Spotify Dataset",
+          "nodeLineageTag": "022e49ee-06e3-4ebb-8aeb-e863703d8852",
+          "size": {
+            "height": 305,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 478,
+            "y": 74
+          },
+          "nodeIndex": "Calendar",
+          "nodeLineageTag": "5a8d1438-215d-4daf-a37e-d83483cdfbce",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 762,
+            "y": 100.5
+          },
+          "nodeIndex": "All DAX",
+          "nodeLineageTag": "a452493c-5849-4906-a972-34f109ff415c",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas las tablas",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas las tablas",
+  "defaultDiagram": "Todas las tablas"
+}

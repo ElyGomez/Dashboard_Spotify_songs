@@ -1,0 +1,39 @@
+table 'All DAX'
+	lineageTag: a452493c-5849-4906-a972-34f109ff415c
+
+	measure 'Total Artist' = DISTINCTCOUNT('Spotify Dataset'[artist(s)_name])
+		formatString: 0
+		lineageTag: a89b6f54-662d-45c8-8cd3-2be7f3e08859
+
+	measure 'Total song' = COUNTROWS('Spotify Dataset')
+		formatString: 0
+		lineageTag: e0fc738f-4cee-44ae-a043-b3253d3b33c7
+
+	measure 'Total Stream' = SUM('Spotify Dataset'[streams])
+		formatString: 0
+		lineageTag: f51c10b3-6b47-4c5b-aef0-9e179d658bb4
+
+	measure 'Total Track' = DISTINCTCOUNT('Spotify Dataset'[track_name])
+		formatString: 0
+		lineageTag: aec7585b-59ae-4245-9f24-3c14aaaab9db
+
+	column 'Columna 1'
+		dataType: string
+		lineageTag: 68a17715-e5e0-49e7-bad8-bc8bcc2f0a84
+		summarizeBy: none
+		sourceColumn: Columna 1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'All DAX' = m
+		mode: import
+		source =
+				let
+				  Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Columna 1" = _t])
+				in
+				  Origen
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

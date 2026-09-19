@@ -1,0 +1,5 @@
+relationship eb0366dc-9bcb-2f6e-beac-1b065f5613b1
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Spotify Dataset'.Date
+	toColumn: Calendar.Date
+
